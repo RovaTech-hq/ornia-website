@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ornia — The Intelligent Infant Guardian</title>
+<meta name="description" content="Ornia is a complete infant-safety platform — a wearable monitor, parent and clinician apps, real-time alerts, and a live dashboard, built around one belief: no parent should monitor alone." />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png" />
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav">
+  <a href="#hero" class="nav-brand">
+    <span class="chip"><img src="assets/img/maluel-icon.svg" alt="" /></span>
+    Ornia
+  </a>
+  <div class="nav-links">
+    <a href="#mission">Mission</a>
+    <a href="#platform">Platform</a>
+    <a href="#showcase">Product</a>
+    <a href="#moments">Moments</a>
+    <a href="#access">Early Access</a>
+  </div>
+  <a href="#access" class="btn btn-primary" style="padding:0.6rem 1.3rem; font-size:0.82rem;">Request Access</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-inner">
+    <div class="badge-pill"><span class="pulse-dot"></span>Introducing Ornia</div>
+    <h1>Every breath, watched.<br /><em>Every night, answered.</em></h1>
+    <p class="lead">Ornia is a complete infant-safety platform — a wearable monitor, a parent app, a clinician portal, and a live dashboard, working as one. Built around a single belief: <strong>no parent should monitor alone.</strong></p>
+    <div class="hero-ctas">
+      <a href="#access" class="btn btn-primary">Request Early Access →</a>
+      <a href="#showcase" class="btn btn-ghost">See the platform ↓</a>
+    </div>
+  </div>
+
+  <div class="orb-tooltip" id="orb-tooltip"></div>
+  <div class="orb-stage" id="orb-stage">
+   <div class="orb-visual" id="orb-visual">
+    <div class="orb-callouts">
+      <div class="callout left top" data-tip="Blood oxygen saturation, measured continuously">
+        <span class="ctext">SpO₂ <b id="orb-spo2">98%</b></span>
+        <svg class="cline" viewBox="0 0 216 140" preserveAspectRatio="none"><path d="M0,12 C129.6,12 86.4,126 216,126" /><circle cx="216" cy="126" r="3.5" style="animation-delay:-0.3s;" /></svg>
+      </div>
+      <div class="callout left mid" data-tip="Breaths per minute, tracked in real time">
+        <span class="ctext">Breathing <b id="orb-rr">36</b>/min</span>
+        <svg class="cline" viewBox="0 0 172 28" preserveAspectRatio="none"><path d="M2,14 C30,4 46,24 70,14 C94,4 110,24 140,14 L170,14" /><circle cx="170" cy="14" r="3.5" style="animation-delay:-1.8s;" /></svg>
+      </div>
+      <div class="callout left bottom" data-tip="Skin temperature, sampled every few seconds">
+        <span class="ctext">Skin Temp <b id="orb-temp">36.7°</b></span>
+        <svg class="cline" viewBox="0 0 216 140" preserveAspectRatio="none"><path d="M0,128 C129.6,128 86.4,14 216,14" /><circle cx="216" cy="14" r="3.5" style="animation-delay:-3.4s;" /></svg>
+      </div>
+
+      <div class="callout right top" data-tip="Learns your baby's own vital signature, not an average">
+        <svg class="cline" viewBox="0 0 216 140" preserveAspectRatio="none"><path d="M0,126 C129.6,126 86.4,12 216,12" /><circle cx="0" cy="126" r="3.5" style="animation-delay:-2.1s;" /></svg>
+        <span class="ctext">AI Baseline <b>Calibrated</b></span>
+      </div>
+      <div class="callout right mid" data-tip="Time from a detected anomaly to a parent's phone">
+        <svg class="cline" viewBox="0 0 172 28" preserveAspectRatio="none"><path d="M2,14 C30,4 46,24 70,14 C94,4 110,24 140,14 L170,14" /><circle cx="2" cy="14" r="3.5" style="animation-delay:-4.6s;" /></svg>
+        <span class="ctext">Alert Latency <b>&lt;800ms</b></span>
+      </div>
+      <div class="callout right bottom" data-tip="Keeps protecting even without WiFi or cloud">
+        <svg class="cline" viewBox="0 0 216 140" preserveAspectRatio="none"><path d="M0,14 C129.6,14 86.4,128 216,128" /><circle cx="0" cy="14" r="3.5" style="animation-delay:-5.5s;" /></svg>
+        <span class="ctext">Mode <b>Offline-First</b></span>
+      </div>
+    </div>
+
+    <div class="orb-ring r1"></div>
+    <div class="orb-ring r2"></div>
+    <div class="orb-ring r3"></div>
+    <div class="orb-core" id="orb-core"></div>
+    <div class="orb-readout">
+      <div class="v" id="orb-hr">126</div>
+      <div class="l">bpm · resting</div>
+    </div>
+   </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>24/7 Continuous Monitoring <b>·</b> AI Personalised Baselines <b>·</b> Offline-First Protection <b>·</b> Sub-Second Alerts <b>·</b> Zero-Knowledge Encryption <b>·</b> Built by Ornia <b>·</b></span>
+    <span>24/7 Continuous Monitoring <b>·</b> AI Personalised Baselines <b>·</b> Offline-First Protection <b>·</b> Sub-Second Alerts <b>·</b> Zero-Knowledge Encryption <b>·</b> Built by Ornia <b>·</b></span>
+  </div>
+</div>
+
+<!-- ═══ MISSION / EDITORIAL STATS ═══ -->
+<section class="mission" id="mission">
+  <div class="container">
+    <div class="mission-head">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dash"></span>Why Ornia Exists</div>
+        <h2>We didn't build this<br /><em>to chase a market.</em></h2>
+      </div>
+      <div class="reveal">
+        <p>Every year, millions of babies never see their first birthday — many lost silently, during sleep, in the hours when no one is watching closely enough. <strong>Ornia exists to close that gap</strong> between love and vigilance, so vigilance never has to sleep.</p>
+      </div>
+    </div>
+
+    <div class="bignum-row">
+      <div class="bignum reveal"><span class="num" data-target="4800000" data-fmt="M">0</span><div class="lbl">Infant deaths each year that earlier warning could help prevent.</div></div>
+      <div class="bignum reveal"><span class="num" data-target="800" data-fmt="ms">0</span><div class="lbl">From a detected anomaly to a parent's phone — start to finish.</div></div>
+      <div class="bignum reveal"><span class="num" data-target="24" data-fmt="hr">0</span><div class="lbl">Hours a day Ornia watches — online, offline, every night, always.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ BENTO PLATFORM GRID ═══ -->
+<section class="platform" id="platform">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dash"></span>One Platform, Every Caregiver</div>
+      <h2>More than a sensor.<br /><em>A complete safety system.</em></h2>
+      <p>Ornia pairs a feather-light wearable with a full software platform — apps, dashboards, and a real-time backend — so everyone caring for your baby sees the same truth, instantly.</p>
+    </div>
+
+    <div class="bento">
+      <div class="tile lg reveal">
+        <span class="tag">Hardware</span>
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-7 4 14 3-9 2 2h3"/></svg></span>
+        <h3>The Wearable Monitor</h3>
+        <p>A feather-light, ankle-worn sensor that learns your baby's unique vital fingerprint from night one — hypoallergenic, certified for newborn skin, gentle enough to disappear.</p>
+      </div>
+      <div class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="11" y1="18" x2="13" y2="18"/></svg></span><h3>Parent App</h3><p>BLE &amp; WiFi pairing, offline-first sync, instant push alerts — iOS and Android.</p></div>
+      <div class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><h3>Web Dashboard</h3><p>Live vitals, trend analytics, and device management in any browser.</p></div>
+      <div class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></span><h3>Clinician Portal</h3><p>Telemedicine-ready access for the doctors and hospitals in your care circle.</p></div>
+      <div class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6.5-9 12-9 12s-9-5.5-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><h3>Geofencing</h3><p>Custom safe-zones with instant boundary-exit alerts, wherever your family goes.</p></div>
+      <div class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span><h3>Smart Escalation</h3><p>Severity-tiered alerts that climb the caregiver chain automatically.</p></div>
+      <div class="tile reveal"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 4 8 8 10 4-2 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Security First</h3><p>JWT + OAuth + 2FA, end-to-end encryption, GDPR/NDPR-aligned consent.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PRODUCT SHOWCASE (device mockups) ═══ -->
+<section class="showcase" id="showcase">
+  <div class="container">
+    <div class="showcase-grid">
+      <div class="showcase-copy reveal">
+        <div class="eyebrow"><span class="dash"></span>Designed To Disappear</div>
+        <h2>Powerful enough to trust.<br /><em>Quiet enough to forget.</em></h2>
+        <p>Your baby's vitals travel from the sensor to your pocket and your browser in real time — calibrated to their personal baseline, not a population average.</p>
+        <div class="showcase-points">
+          <div class="pt"><span class="dot"></span><span><b>Personalised baselines</b> — every alert is calibrated to your child, never a generic threshold.</span></div>
+          <div class="pt"><span class="dot"></span><span><b>Offline-first core</b> — local detection and response never depend on a server.</span></div>
+          <div class="pt"><span class="dot"></span><span><b>One truth, every screen</b> — phone, dashboard, and clinician portal stay perfectly in sync.</span></div>
+        </div>
+      </div>
+
+      <div class="devices reveal">
+        <div class="laptop">
+          <div class="laptop-bar"><span></span><span></span><span></span></div>
+          <div class="laptop-screen">
+            <div class="row1"><span class="t">Ornia Dashboard · Live</span><span class="b"><span class="dot-live"></span>Connected</span></div>
+            <div class="mini-cards">
+              <div><div class="mv">98%</div><div class="ml">SpO₂</div></div>
+              <div><div class="mv">126</div><div class="ml">BPM</div></div>
+              <div><div class="mv">36</div><div class="ml">RR/min</div></div>
+              <div><div class="mv">36.7°</div><div class="ml">Temp</div></div>
+            </div>
+            <div class="bar-chart" id="laptop-bars"></div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="ph-head">Ornia · Live Vitals</div>
+            <canvas id="phoneWave" width="160" height="36"></canvas>
+            <div class="phone-vitals">
+              <div><div class="pv" id="pv-spo2">98%</div><div class="pl">SpO₂</div></div>
+              <div><div class="pv" id="pv-hr">126</div><div class="pl">BPM</div></div>
+              <div><div class="pv" id="pv-rr">36</div><div class="pl">RR</div></div>
+              <div><div class="pv" id="pv-temp">36.7°</div><div class="pl">Temp</div></div>
+            </div>
+            <div class="phone-status"><span class="d"></span>All vitals normal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ HORIZONTAL GALLERY ═══ -->
+<section class="gallery" id="moments">
+  <div class="container">
+    <div class="gallery-head reveal">
+      <h2>A guardian, <em>every night.</em></h2>
+      <div class="gallery-nav">
+        <button id="gal-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button id="gal-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+    <div class="gallery-track" id="gallery-track">
+      <div class="gallery-slide"><img src="assets/img/slide-1.jpeg" alt="" /><div class="gcap"><div class="n">01 · Real-Time Monitoring</div><div class="t">Every breath, every heartbeat</div></div></div>
+      <div class="gallery-slide"><img src="assets/img/slide-2.jpeg" alt="" /><div class="gcap"><div class="n">02 · AI Intelligence</div><div class="t">Rest. Ornia is watching.</div></div></div>
+      <div class="gallery-slide"><img src="assets/img/slide-4.jpeg" alt="" /><div class="gcap"><div class="n">03 · Always On</div><div class="t">The first night, every night</div></div></div>
+      <div class="gallery-slide"><img src="assets/img/slide-5.jpeg" alt="" /><div class="gcap"><div class="n">04 · One Care Circle</div><div class="t">Every caregiver, one truth</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUOTE ═══ -->
+<section class="quote-band">
+  <div class="container reveal">
+    <blockquote>“We didn't build Ornia to replace a parent's instinct. We built it so that instinct never has to stand alone at 3am.”</blockquote>
+    <cite>— The Ornia Team</cite>
+  </div>
+</section>
+
+<!-- ═══ CTA / EARLY ACCESS (paper band) ═══ -->
+<section class="cta-section section-on-paper" id="access">
+  <div class="container">
+    <div class="cta-grid">
+      <div class="cta-copy reveal">
+        <div class="eyebrow">Join Our Founding Family</div>
+        <h2>Be one of the first.<br /><em>Always.</em></h2>
+        <p>Join the founding waitlist for Ornia. Priority access, founding-member pricing, and a direct line to the team building this — before the statistics could ever apply to your family.</p>
+        <ul class="cta-list">
+          <li><span class="star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Priority access before public launch</li>
+          <li><span class="star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Founding member pricing — locked for life</li>
+          <li><span class="star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Direct line to our infant-safety team</li>
+        </ul>
+        <div class="cta-mini-stats">
+          <div><div class="v">12,482</div><div class="l">On the waitlist</div></div>
+          <div><div class="v">99.2%</div><div class="l">Alert precision</div></div>
+          <div><div class="v">11</div><div class="l">Patents filed</div></div>
+        </div>
+      </div>
+
+      <div class="form-card reveal">
+        <div id="form-body">
+          <h3>Secure your place</h3>
+          <p class="sub">Free to join. No commitment. Cancel anytime.</p>
+
+          <div class="field-row two">
+            <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" id="fn" placeholder="e.g. Adaeze Okafor" /></div>
+            <div class="field"><label>Email <span class="req">*</span></label><input type="email" id="em" placeholder="your@email.com" /></div>
+          </div>
+
+          <div class="field-row two">
+            <div class="field">
+              <label>I am a <span class="req">*</span></label>
+              <select id="ro">
+                <option value="">Select your role…</option>
+                <option value="PARENT">Parent / Guardian</option>
+                <option value="DOCTOR">Healthcare Provider</option>
+                <option value="HOSPITAL">Hospital / Clinic</option>
+                <option value="OTHER">Other</option>
+              </select>
+            </div>
+            <div class="field"><label>Organization <span class="opt">(optional)</span></label><input type="text" id="org" placeholder="Hospital or company name" /></div>
+          </div>
+
+          <div class="field-row two">
+            <div class="field"><label>Phone <span class="opt">(optional)</span></label><input type="tel" id="ph" placeholder="+234 800 000 0000" /></div>
+            <div class="field">
+              <label>Heard about us via <span class="opt">(optional)</span></label>
+              <select id="ref">
+                <option value="">Select…</option>
+                <option>Social Media</option><option>Google Search</option><option>Friend/Family</option>
+                <option>Healthcare Provider</option><option>Advertisement</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Message <span class="opt">(optional)</span></label>
+            <textarea id="msg" placeholder="Tell us what you're most excited about..."></textarea>
+          </div>
+
+          <div id="form-error" class="form-error" style="display:none;"></div>
+
+          <button id="submit-btn" class="form-submit" style="margin-top:1.25rem;">Secure My Place →</button>
+          <p class="form-note">Your data is encrypted and never sold. Fields marked <span class="req">*</span> are required.</p>
+        </div>
+
+        <div class="form-sending" id="form-sending">
+          <div class="send-spinner"></div>
+          <p style="font-size:0.85rem; color:var(--paper-muted);">Securing your place…</p>
+        </div>
+
+        <div class="form-success" id="form-success">
+          <div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3>You're on the list.</h3>
+          <div class="ref-box">
+            <div class="label">Your Waitlist Reference</div>
+            <div class="ref" id="wl-ref">#000000</div>
+          </div>
+          <p class="copy">Welcome to the founding family. You'll be first to hear about early access, founding-member pricing, and priority shipping.<br /><br /><em>Your baby has a guardian now.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <a href="#hero" class="nav-brand"><span class="chip"><img src="assets/img/maluel-icon.svg" alt="" /></span>Ornia</a>
+        <p>Reducing infant mortality globally — one family, one guardian, one saved life at a time.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <a href="#platform">Wearable Monitor</a>
+        <a href="#showcase">Parent App</a>
+        <a href="#showcase">Web Dashboard</a>
+        <a href="#platform">Clinician Portal</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#mission">Mission</a>
+        <a href="#moments">Moments</a>
+        <a href="#access">Early Access</a>
+        <a href="mailto:info@rovatechltd.co.uk">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="privacy/">Privacy Policy</a>
+        <a href="terms-conditions/">Terms &amp; Conditions</a>
+        <a href="#">Patents</a>
+      </div>
+    </div>
+    <div class="footer-watermark">ORNIA</div>
+    <div class="footer-bottom">
+      <span>© 2026 Ornia. All rights reserved.</span>
+      <span>Built for every parent who refuses to look away.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
