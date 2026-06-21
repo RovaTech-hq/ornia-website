@@ -183,6 +183,16 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .orb-readout .l { font-size: 0.7rem; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.16em; margin-top: 0.35rem; }
 @media (min-width: 1020px) { .orb-readout .v { font-size: 3.4rem; } .orb-readout .l { font-size: 0.78rem; } }
 
+/* ===== ORB MOBILE STATS — below the orb on small screens, where the bending ===== */
+/* leader-lines below don't have room to lay out. Same data, simple responsive chips. */
+.orb-mobile-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 2.25rem auto 0; max-width: 460px; }
+@media (max-width: 420px) { .orb-mobile-stats { grid-template-columns: 1fr; } }
+@media (min-width: 1020px) { .orb-mobile-stats { display: none; } }
+.mstat { display: flex; align-items: center; gap: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 0.6rem 1rem; }
+.mstat .mdot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); flex-shrink: 0; animation: dot-orbit 7s linear infinite; }
+.mstat .mtext { font-size: 0.78rem; color: var(--fg-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mstat .mtext b { color: var(--fg); font-weight: 600; }
+
 /* ===== ORB CALLOUTS — leader-lines that bend down/up to actually touch the orb =====
    Geometry is hand-computed for the exact 960×600 stage (orb centred at 480,300, r=150),
    so the breakpoint below only activates once the stage is guaranteed to be at that exact size. */
@@ -300,8 +310,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .showcase-points .pt b { color: var(--fg); }
 .showcase-points .pt span { color: var(--fg-muted); }
 
-.devices { position: relative; display: flex; align-items: center; justify-content: center; min-height: 460px; padding-right: 0; }
-@media (min-width: 641px) { .devices { justify-content: flex-start; padding-right: 130px; } }
+.devices { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3rem; min-height: auto; padding-right: 0; }
+@media (min-width: 641px) { .devices { flex-direction: row; justify-content: flex-start; gap: 0; min-height: 460px; padding-right: 130px; } }
 .laptop { width: 100%; max-width: 440px; background: var(--surface-2); border: 1px solid var(--border-strong); border-radius: 14px 14px 4px 4px; box-shadow: 0 30px 80px rgba(0,0,0,0.45); overflow: hidden; }
 .laptop-bar { display: flex; align-items: center; gap: 6px; padding: 0.6rem 0.8rem; background: var(--surface); border-bottom: 1px solid var(--border); }
 .laptop-bar span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.15); }
@@ -317,7 +327,8 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .bar-chart { display: flex; align-items: flex-end; gap: 5px; height: 70px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 0.6rem; }
 .bar-chart i { flex: 1; background: linear-gradient(to top, var(--teal), var(--violet)); border-radius: 3px; opacity: 0.85; }
 
-.phone { position: absolute; right: 0; bottom: -36px; width: 190px; background: #06090c; border: 6px solid #1c2329; border-radius: 32px; box-shadow: 0 30px 70px rgba(0,0,0,0.55); }
+.phone { position: relative; width: 220px; max-width: 72vw; margin: 0 auto; background: #06090c; border: 6px solid #1c2329; border-radius: 32px; box-shadow: 0 30px 70px rgba(0,0,0,0.55); }
+@media (min-width: 641px) { .phone { position: absolute; right: 0; bottom: -36px; width: 190px; max-width: none; margin: 0; } }
 .phone-notch { width: 60px; height: 16px; background: #1c2329; border-radius: 0 0 12px 12px; margin: 0 auto; }
 .phone-screen { background: var(--surface-2); margin: 4px; border-radius: 26px; padding: 1.1rem 0.9rem 1.3rem; min-height: 360px; }
 .phone-screen .ph-head { font-size: 0.62rem; color: var(--fg-faint); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.8rem; text-align: center; }
@@ -328,7 +339,6 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .phone-vitals .pl { font-size: 0.55rem; color: var(--fg-faint); text-transform: uppercase; margin-top: 0.15rem; }
 .phone-status { margin-top: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.62rem; color: var(--mint); }
 .phone-status .d { width: 6px; height: 6px; border-radius: 50%; background: var(--mint); animation: pulse 2s ease-in-out infinite; }
-@media (max-width: 640px) { .phone { display: none; } }
 
 /* ===== HORIZONTAL GALLERY ===== */
 .gallery { padding: 6rem 0 7.5rem; }

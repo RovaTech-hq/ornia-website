@@ -65,16 +65,20 @@ function initBigNumbers() {
 // ===== HERO ORB READOUT + CALLOUTS =====
 function initOrb() {
   const hr = document.getElementById('orb-hr');
-  const spo2 = document.getElementById('orb-spo2');
-  const rr = document.getElementById('orb-rr');
-  const temp = document.getElementById('orb-temp');
   if (!hr) return;
   function rnd(a, b, d = 0) { return parseFloat((Math.random() * (b - a) + a).toFixed(d)); }
+  function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  }
   function tick() {
     hr.textContent = rnd(118, 132);
-    if (spo2) spo2.textContent = rnd(96, 99) + '%';
-    if (rr) rr.textContent = rnd(32, 40);
-    if (temp) temp.textContent = rnd(36.4, 37.1, 1) + '°';
+    const spo2 = rnd(96, 99) + '%';
+    const rr = rnd(32, 40);
+    const temp = rnd(36.4, 37.1, 1) + '°';
+    setText('orb-spo2', spo2); setText('orb-spo2-m', spo2);
+    setText('orb-rr', rr); setText('orb-rr-m', rr);
+    setText('orb-temp', temp); setText('orb-temp-m', temp);
   }
   setInterval(tick, 2400);
 }
