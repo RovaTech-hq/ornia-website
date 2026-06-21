@@ -418,8 +418,9 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 
 /* ===== FOOTER ===== */
 .footer { padding: 5rem 0 2.5rem; position: relative; overflow: hidden; }
-.footer-grid { display: grid; gap: 2.5rem; margin-bottom: 3.5rem; }
-@media (min-width: 760px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+.footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 1.25rem; margin-bottom: 3.5rem; }
+.footer-brand-col { grid-column: 1 / -1; }
+@media (min-width: 760px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2.5rem; } .footer-brand-col { grid-column: auto; } }
 .footer-brand-col .nav-brand { margin-bottom: 1rem; }
 .footer-brand-col p { color: var(--fg-muted); font-size: 0.88rem; line-height: 1.7; max-width: 280px; margin: 0; }
 .footer-col h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--fg-faint); margin: 0 0 1.1rem; }
@@ -464,3 +465,55 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .legal-contact { margin-top: 1.5rem; padding: 1.5rem 1.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.9rem; color: var(--fg-muted); line-height: 2; }
 .legal-contact strong { color: var(--fg); }
 .legal-footer-note { margin-top: 2.5rem; font-size: 0.82rem; color: var(--fg-faint); font-style: italic; line-height: 1.8; }
+
+/* ===== MOBILE DENSITY PASS =====
+   Every section above is sized for desktop. Below 680px, the same generous
+   padding just becomes dead scroll distance — tighten everything up and
+   shrink the hero orb so it doesn't dominate the whole first screen. */
+@media (max-width: 680px) {
+  .hero { padding: 6.5rem 1.25rem 0; }
+  .hero-ctas { margin-bottom: 2.25rem; }
+  .badge-pill { margin-bottom: 1.5rem; }
+  .hero p.lead { margin-bottom: 2rem; }
+
+  .orb-stage { max-width: 300px; height: 300px; margin: 1.25rem auto 0; }
+  .orb-ring { width: 200px; height: 200px; margin: -100px 0 0 -100px; }
+  .orb-core { width: 185px; height: 185px; margin: -92.5px 0 0 -92.5px; }
+  .orb-readout .v { font-size: 2.2rem; }
+  .orb-readout .l { font-size: 0.62rem; }
+  .orb-mobile-stats { margin: 1.5rem auto 0; gap: 0.55rem; }
+  .mstat { padding: 0.5rem 0.85rem; }
+  .mstat .mtext { font-size: 0.73rem; }
+
+  .marquee { padding: 0.9rem 0; }
+  .marquee-track { gap: 2rem; }
+  .marquee-track span { font-size: 0.85rem; gap: 2rem; }
+
+  .mission { padding: 3.25rem 0 2.75rem; }
+  .mission-head { gap: 1.5rem; margin-bottom: 2.25rem; }
+  .bignum-row { padding-top: 1.75rem; gap: 1.75rem; }
+
+  .platform { padding: 3.25rem 0 3.5rem; }
+  .section-head { margin-bottom: 2rem; }
+  .bento { gap: 0.85rem; }
+  .tile { padding: 1.3rem; }
+  .tile.lg { min-height: 220px; }
+
+  .showcase { padding: 2.25rem 0 3.5rem; }
+  .showcase-copy { margin-bottom: 0; }
+  .devices { gap: 2rem; min-height: auto; }
+
+  .gallery { padding: 3.25rem 0 3.5rem; }
+  .gallery-head { margin-bottom: 1.5rem; }
+
+  .quote-band { padding: 3.25rem 0; }
+
+  .cta-section { padding: 3.5rem 0; }
+  .cta-grid { gap: 2.25rem; }
+  .cta-copy h2 { margin-bottom: 1rem; }
+  .form-card { padding: 1.5rem; }
+
+  .footer { padding: 3rem 0 2rem; }
+  .footer-grid { margin-bottom: 2.5rem; }
+  .footer-watermark { font-size: clamp(3rem, 18vw, 6rem); margin: 1.5rem 0 -0.75rem; }
+}
