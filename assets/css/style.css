@@ -123,6 +123,11 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 4.5rem; }
 
 .orb-stage { position: relative; width: 100%; max-width: 380px; height: 380px; margin: 3rem auto 0; z-index: 1; }
+@media (min-width: 681px) and (max-width: 1019px) {
+  .orb-stage { max-width: 640px; height: 420px; margin: 3.5rem auto 0; }
+  .orb-ring { width: 220px; height: 220px; margin: -110px 0 0 -110px; }
+  .orb-core { width: 200px; height: 200px; margin: -100px 0 0 -100px; }
+}
 @media (min-width: 1020px) { .orb-stage { max-width: 960px; height: 600px; margin: 4rem auto 0; } }
 .orb-visual { position: absolute; inset: 0; transition: transform 0.5s cubic-bezier(.22,1,.36,1); will-change: transform; }
 .orb-ring { position: absolute; top: 50%; left: 50%; width: 260px; height: 260px; margin: -130px 0 0 -130px; border-radius: 50%; border: 1px solid rgba(24,200,178,0.35); animation: ripple 4.8s ease-out infinite; transition: filter 0.4s ease; }
@@ -181,10 +186,13 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 }
 .orb-readout .v { font-family: var(--font-display); font-size: 2.6rem; font-weight: 500; font-variant-numeric: tabular-nums; }
 .orb-readout .l { font-size: 0.7rem; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.16em; margin-top: 0.35rem; }
+@media (min-width: 681px) and (max-width: 1019px) { .orb-readout .v { font-size: 2.7rem; } }
 @media (min-width: 1020px) { .orb-readout .v { font-size: 3.4rem; } .orb-readout .l { font-size: 0.78rem; } }
 
-/* ===== ORB MOBILE STATS — below the orb on small screens, where the bending ===== */
-/* leader-lines below don't have room to lay out. Same data, simple responsive chips. */
+/* ===== ORB MOBILE STATS — safety-net fallback =====
+   Shown by default below 1020px; orb-callouts-responsive.js replaces it with
+   real tailored leader-lines (below) once it measures the orb and renders
+   them. If that script ever fails to run, these stay visible — never a gap. */
 .orb-mobile-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin: 2.25rem auto 0; max-width: 460px; }
 @media (max-width: 420px) { .orb-mobile-stats { grid-template-columns: 1fr; } }
 @media (min-width: 1020px) { .orb-mobile-stats { display: none; } }
@@ -192,6 +200,19 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
 .mstat .mdot { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); flex-shrink: 0; animation: dot-orbit 7s linear infinite; }
 .mstat .mtext { font-size: 0.78rem; color: var(--fg-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mstat .mtext b { color: var(--fg); font-weight: 600; }
+
+/* ===== ORB CALLOUTS — RESPONSIVE (tablet/mobile) =====
+   Generated at runtime by orb-callouts-responsive.js from the orb's actual
+   measured size, so the bend always lands exactly on the circle's edge at
+   whatever width it renders at. Desktop (>=1020px) keeps its own static,
+   hand-tuned .orb-callouts above and is untouched by this. */
+.orb-callouts-dyn { position: absolute; inset: 0; z-index: 3; pointer-events: none; display: none; }
+@media (min-width: 360px) and (max-width: 1019px) { .orb-callouts-dyn.is-active { display: block; } }
+.orb-callouts-dyn .dyn-svg { position: absolute; inset: 0; overflow: visible; }
+.orb-callouts-dyn .dyn-svg path { fill: none; stroke: var(--border-strong); stroke-width: 1.3; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.orb-callouts-dyn .dyn-svg circle { fill: var(--teal); filter: drop-shadow(0 0 5px var(--teal)); transform-box: fill-box; transform-origin: center; animation: dot-orbit 7s linear infinite; }
+.orb-callouts-dyn .dyn-text { position: absolute; color: var(--fg-muted); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.orb-callouts-dyn .dyn-text b { color: var(--fg); font-weight: 600; }
 
 /* ===== ORB CALLOUTS — leader-lines that bend down/up to actually touch the orb =====
    Geometry is hand-computed for the exact 960×600 stage (orb centred at 480,300, r=150),
@@ -492,11 +513,11 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   .badge-pill { margin-bottom: 1.5rem; }
   .hero p.lead { margin-bottom: 2rem; }
 
-  .orb-stage { max-width: 300px; height: 300px; margin: 1.25rem auto 0; }
-  .orb-ring { width: 200px; height: 200px; margin: -100px 0 0 -100px; }
-  .orb-core { width: 185px; height: 185px; margin: -92.5px 0 0 -92.5px; }
-  .orb-readout .v { font-size: 2.2rem; }
-  .orb-readout .l { font-size: 0.62rem; }
+  .orb-stage { max-width: 360px; height: 340px; margin: 1.25rem auto 0; }
+  .orb-ring { width: 135px; height: 135px; margin: -67.5px 0 0 -67.5px; }
+  .orb-core { width: 120px; height: 120px; margin: -60px 0 0 -60px; }
+  .orb-readout .v { font-size: 1.7rem; }
+  .orb-readout .l { font-size: 0.56rem; }
   .orb-mobile-stats { margin: 1.5rem auto 0; gap: 0.55rem; }
   .mstat { padding: 0.5rem 0.85rem; }
   .mstat .mtext { font-size: 0.73rem; }
