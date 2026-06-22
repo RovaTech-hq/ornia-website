@@ -558,3 +558,37 @@ button { font-family: inherit; cursor: pointer; background: none; border: none; 
   .footer-grid { margin-bottom: 2.5rem; }
   .footer-watermark { font-size: clamp(3rem, 18vw, 6rem); margin: 1.5rem 0 -0.75rem; }
 }
+
+/* ===== CUSTOM CURSOR — desktop / fine-pointer only =====
+   A precise dot plus a softly-lagging glow ring, in the brand's teal. Real
+   touch/tablet devices never match the media query below, so they keep their
+   native behaviour untouched — this is purely a desktop embellishment. */
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button,
+  html.has-custom-cursor summary,
+  html.has-custom-cursor .tile,
+  html.has-custom-cursor .mstat,
+  html.has-custom-cursor label { cursor: none; }
+  html.has-custom-cursor input,
+  html.has-custom-cursor textarea,
+  html.has-custom-cursor select { cursor: auto; }
+}
+.cursor-dot, .cursor-ring {
+  position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999;
+  opacity: 0; will-change: transform, opacity;
+}
+.cursor-dot {
+  width: 7px; height: 7px; background: var(--teal); box-shadow: 0 0 8px var(--teal);
+  transition: opacity 0.25s ease;
+}
+.cursor-ring {
+  width: 34px; height: 34px; border: 1.5px solid rgba(24,200,178,0.55);
+  box-shadow: 0 0 18px rgba(24,200,178,0.18);
+  transition: opacity 0.3s ease, width 0.3s cubic-bezier(.22,1,.36,1), height 0.3s cubic-bezier(.22,1,.36,1), border-color 0.3s ease, box-shadow 0.3s ease, margin 0.3s cubic-bezier(.22,1,.36,1);
+}
+.cursor-dot.show, .cursor-ring.show { opacity: 1; }
+.cursor-ring.is-hover { width: 56px; height: 56px; border-color: rgba(24,200,178,0.85); box-shadow: 0 0 30px rgba(24,200,178,0.4); }
+.cursor-ring.is-press { width: 26px; height: 26px; }
+.cursor-dot.is-hidden, .cursor-ring.is-hidden { opacity: 0 !important; }
